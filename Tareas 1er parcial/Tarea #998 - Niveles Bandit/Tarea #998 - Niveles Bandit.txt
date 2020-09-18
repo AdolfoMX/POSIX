@@ -1,0 +1,209 @@
+******************************************
+* AUTOR: Adolfo Tun Dzul                 *
+* MATRÍCULA: 170300124                   *
+* ASIGNATURA: Sistemas Operativos POSIX  *
+* Tarea #998: Niveles bandit             * 
+******************************************
+
+Level 0 
+$: ssh bandit0@bandit.labs.overthewire.org -p 2220
+password: bandit0
+
+
+Level 0 
+$: cat readme
+password: boJ9jbbUNNfktd78OOpsqOltutMc3MY1
+
+
+Level 1 
+$: cat ./-
+password: CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9
+
+
+Level 2 
+$: cat 'spaces in this filename'
+password: UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK
+
+
+Level 3 
+$: cat /home/bandit3/inhere/.hidden
+password: pIwrPrtPN36QITSp3EQaw936yaFoFgAB
+
+
+Level 4 
+$: find inhere/ -type f | xargs file | cat ./inhere/-file07
+password: koReBOKuIDDepwhWk7jZC0RTdopnAYKh
+
+
+Level 5 
+$: find inhere/ -type f -size 1033c | cat ./inhere/maybehere07/.file2
+password: DXjZPULLxYr17uwoI01bNLQbtFemEgo7
+
+
+Level 6 
+$: find / -type f -size 33c | cat /var/lib/dpkg/info/bandit7.password
+password: HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
+
+
+Level 7 
+$: sort data.txt | grep millionth
+password: cvX2JJa4CFALtqS87jk27qwqGhBM9plV
+
+
+Level 8 
+$: sort data.txt | uniq -c -u
+password: UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
+
+
+Level 9 
+$: strings data.txt | grep '='
+password: truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk
+
+
+Level 10 
+$: base64 -d data.txt 
+password: IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
+
+
+Level 11 
+$: cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+password: 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
+
+
+Level 12
+# Nota: el nivel 12 pide descomprimir como unas 8 veces el archivo
+# asi que solo se mostrara los comandos usados para descomprimirlo
+# ya que el proceso es repetitivo
+
+$: mdkir /tmp/adolfo
+$: cp data.txt /tmp/adolfo
+$: cd /tmp/adolfo
+$: xxd -r data.txt > data
+$: gzip -d data
+$: mv data file.gz
+$: bzip2 -d file.bz2
+$: mv file file.tar
+$: tar xf file.tar
+password: 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+
+
+Level 13
+$: ssh -i sshkey.private bandit14@localhost cat /etc/bandit_pass/bandit14
+password: 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
+
+
+Level 14 
+$: nc localhost 30000 | cat /etc/bandit_pass/bandit14 | nc localhost 30000
+pssword: BfMYroe26WYalil77FoDi9qh59eK5xNr
+
+
+Level 15
+$: cat /etc/bandit_pass/bandit15 | openssl s_client -connect localhost:30001 -quiet
+password: cluFn7wTiGryunymYOu4RcffSxQluehd
+
+
+Level 16
+# NOTA: Guardar la llave privada en un archivo .private, el archivo con la llave
+# se encuentra guardado en el repositorio con el nombre de "sshkey_bandit16.private".
+# Después guardado la llave privada entrar al ssh de bandit17 con la llave
+
+$: nmap localhost -p 31000-32000 -A | cat /etc/bandit_pass/bandit16 | openssl s_client -connect localhost:31790 -quiet
+$: ssh -i sshkey_bandit16.private bandit17@bandit.labs.overthewire.org -p 2220 cat /etc/bandit_pass/bandit17
+password: xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn
+
+
+Level 17
+$: diff passwords.old passwords.new
+password: kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
+
+
+Level 18
+$: ssh bandit18@bandit.labs.overthewire.org -p 2220 cat readme
+password: IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
+
+Level 19
+$: ./bandit20-do cat /etc/bandit_pass/bandit20
+password: GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+
+
+Level 20
+$: cat /etc/bandit_pass/bandit20 | nc -l localhost -p 1234 | ./suconnect 1234
+password: gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
+
+
+Level 21
+$: cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+password: Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
+
+
+Level 22
+$: myname=bandit22 | echo I am user $myname | md5sum | cut -d ' ' -f 1 | cat /tmp/8ca319486bfbbc3663ea0fbe81326349
+password: jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
+
+
+Level 23
+# NOTA: Para el nivel 23 bandit se debe crear un archivo .sh y otro con nombre password
+# dentro del directorio /tmp/("Directorio_Existente"), en el repositorio hay un de ejemplo del .sh
+
+$: cp banditscript23.sh /var/spool/bandit24/ | cat bandit24password
+password: UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
+
+
+Level 24
+# NOTA: crear un directorio en la carpeta /tmp y dentro hacer un script
+# con un ciclo para correr las diferentes combinaciones de contraseña,
+# el ejemplo del script esta en el repositorio como loopBandit24.sh
+
+$: ./loopBandit24.sh
+password: uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
+
+
+Level 25
+# NOTA: minimizar la pantalla y mantener presionado el boton "v"
+# y escribrir el siguiente comando de abajo
+
+$: ssh -t -i bandit26.sshkey bandit26@localhost
+:e /etc/bandit_pass/bandit26
+:set shell=/bin/bash
+:shell
+password: 5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z 
+
+
+Level 26
+$: ./bandit27-do cat /etc/bandit_pass/bandit27
+password: 3ba3118a22e93127a4ed485be72ef5ea
+
+
+Level 27
+$: git clone ssh://bandit27-git@localhost/home/bandit27-git/repo | cat repo/README
+password: 0ef186ac70e04ea33b4c1853d2526fa2
+
+
+Level 28
+$: git log -p -1
+password: bbc96594b4e001778eee9975372716b2
+
+
+Level 29
+$: git checkout dev | cat README.md
+password: 5b90576bedb2cc04c86a9e924ce42faf
+
+
+Level 30
+$: git tag | git show secret
+password: 47e603bb428404d265f59c42920d81e5
+
+
+Level 31
+$: echo "May I come in?" > key.txt | rm .gitignore | git add key.txt | git commit -m "Upload a key" | git push origin master
+password: 56a9bf19c63d650ce78e6ec0354ee45e
+
+
+Level 32
+>> $0
+$: cat /etc/bandit_pass/bandit33
+password: c9c3199ddf4121b10cf581a98d51caee
+
+
+Level 33
+$: cat README.txt
