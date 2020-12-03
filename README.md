@@ -10,6 +10,6 @@ de **Tarea #999 - Grabacion de practica.txt**
 
 ## Menú interactivo [:crystal_ball:]("#" ":crystal_ball:")[:video_camera:]("#" ":video_camera:")
 Menú interactivo donde se visualizan los trabajos hechos durante el semestre, el archivo ejecutable se encuentra
-en **Tareas 3er parcial/menu interactivo POSIX**/menu.sh
+en **Tareas 3er parcial/menu interactivo POSIX/menu.sh**
 
 [![asciicast](https://asciinema.org/a/emLLNcgHHNTm08YZzy5gUJXpE.svg)](https://asciinema.org/a/emLLNcgHHNTm08YZzy5gUJXpE)
