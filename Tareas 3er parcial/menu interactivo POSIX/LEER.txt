@@ -1,0 +1,11 @@
+#---- INSTRUCCIONES DE USO ----#
+Por favor tener instalado los siguientes programas para su buena ejecución del script "menu.sh".
+
+PROGRAMAS:            LINKS:
+[*] Cowsay            ~~~
+[*] Ruby              ~~~
+[*] Lolcat    ---->   https://rootear.com/ubuntu-linux/lolcat (Link para cowsay, ruby y lolcat)
+[*] Fzf       ---->   https://github.com/junegunn/fzf
+
+Una vez instalados prueba correr el script en la terminal: "./menu.sh", por favor ejecutalo dentro de 
+la carpeta "menu interactivo POSIX".

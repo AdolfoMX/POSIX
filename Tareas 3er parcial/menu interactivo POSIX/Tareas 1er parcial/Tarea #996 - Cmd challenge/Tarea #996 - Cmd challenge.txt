@@ -1,0 +1,258 @@
+******************************************
+* AUTOR: Adolfo Tun Dzul                 *
+* MATRÍCULA: 170300124                   *
+* ASIGNATURA: Sistemas Operativos POSIX  *
+* Tarea #996: Retos de CommandChallenge  *
+******************************************
+
+Level 1
+## Your first challenge is to print "hello world" on the terminal in a single command.
+## Hint: There are many ways to print text on the command line, one way is with the 'echo' command. Try it below and good luck!
+
+(0)> echo "hello world"
+
+
+Level 2
+## Print the current working directory.
+
+(0)>pwd 
+
+
+Level 3
+## List names of all the files in the current directory, one file per line.
+
+(0)> ls
+
+
+Level 4
+## There is a file named access.log in the current directory. Print the contents.
+
+(0)> cat access.log
+
+
+Level 5
+## Print the last 5 lines of "access.log".
+
+(0)> tail -5 access.log
+
+
+Level 6
+## Create an empty file named take-the-command-challenge in the current working directory.
+
+(0)> touch take-the-command-challenge
+
+
+Level 7
+## Copy the file named take-the-command-challenge to the directory tmp/files
+
+(0)> cp -r take-the-command-challenge tmp/files
+
+
+Level 8
+## Move the file named take-the-command-challenge to the directory tmp/files
+
+(0)> mv take-the-command-challenge tmp/files 
+
+
+Level 9
+## A symbolic link is a type of file that is a reference to another file.
+## Create a symbolic link named take-the-command-challenge that points to the file tmp/files/take-the-command-challenge.
+
+(0)> ln -s tmp/files/take-the-command-challenge
+
+
+Level 10
+## Delete all of the files in this challenge directory including all subdirectories and their contents.
+
+(0)> find . -delete
+
+
+Level 11
+## There are files in this challenge with different file extensions. Remove all files with the .doc extension recursively in the current working directory.
+
+(0)> find . -name '*.doc' -delete
+
+
+Level 12
+## There is a file named access.log in the current working directory. Print all lines in this file that contains the string "GET".
+
+(0)> grep 'GET' ./access.log 
+
+
+Level 13
+## Print all files in the current directory, one per line (not the path, just the filename) that contain the string "500".
+
+(0)> grep -l -r '500' 
+
+
+Level 14
+## Print the relative file paths, one path per line for all filenames that start with "access.log" in the current directory.
+
+(0)> find . -name 'access.log*'
+
+
+Level 15
+## Print all matching lines (without the filename or the file path) in all files under the current directory that start with "access.log" that contain the string "500".
+## Note that there are no files named access.log in the current directory, you will need to search recursively.
+
+(0)> find . -name 'access.log*' | xargs grep -h '500' 
+
+
+Level 16
+## Extract all IP addresses from files that start with "access.log" printing one IP address per line.
+
+(0)> find -name "access.log*" | xargs grep -Eo '^[^ ]+' 
+
+
+Level 17
+## Count the number of files in the current working directory. Print the number of files as a single integer.
+
+(0)> ls -A | wc -l 
+
+
+Level 18
+## Print the contents of access.log sorted.
+
+(0)> sort ./access.log 
+
+
+Level 19
+## Print the number of lines in access.log that contain the string "GET".
+
+(0)> grep -r "GET" | wc -l 
+
+
+Level 20
+## The file split-me.txt contains a list of numbers separated by a ; character.
+## Split the numbers on the ; character, one number per line.
+
+(0)> tr ';' '\n' < split-me.txt 
+
+
+Level 21
+# Print the numbers 1 to 100 separated by spaces.
+
+(0)> seq -s " " 100
+
+
+Level 22
+## This challenge has text files (with a .txt extension) that contain the phrase "challenges are difficult". 
+## Delete this phrase from all text files recursively.
+## Note that some files are in subdirectories so you will need to search for them.
+
+(0)> find . -name '*.txt' -exec sed -ie 's/challenges are difficult//g' {} + 
+
+
+Level 23
+## The file sum-me.txt has a list of numbers, one per line. Print the sum of these numbers.
+
+(0)> cat sum-me.txt | paste -sd '+' | bc 
+
+
+Level 24
+## Print all files in the current directory recursively without the leading directory path.
+
+(0)> find * -type f -printf '%f\n' 
+
+
+Level 25
+## Rename all files removing the extension from them in the current directory recursively.
+
+(0)> rename 's/\..*$//g' **/*.*  
+
+
+Level 26
+## The files in this challenge contain spaces. List all of the files (filenames only) in the current directory but replace all spaces with a '.' character.
+
+(0)> ls | tr ' ' '.'
+
+
+Level 27
+## In this challenge there are some directories containing files with different extensions. Print all directories, one per line without duplicates that
+## contain one or more files with a ".tf" extension.
+
+(0)> find . -name '*.tf' -printf '%h\n' | uniq
+
+
+Level 28
+## There are a mix of files in this directory that start with letters and numbers. 
+## Print the filenames (just the filenames) of all files that start with a number recursively in the current directory.
+
+(0)> find . -type f -printf "%f\n" | grep ^[0-9]
+
+
+Level 29
+## Print the 25th line of the file faces.txt
+
+(0)> head -25 faces.txt | tail -1
+
+
+Level 30
+## Print the lines of the file reverse-me.txt in this directory in reverse line order so that the last line is printed first and 
+## the first line is printed last.
+
+(0)> sort -r -n reverse-me.txt
+
+
+Level 31
+## Print the file faces.txt, but only print the first instance of each duplicate line, even if the duplicates don't appear next to each other.
+## Note that order matters so don't sort the lines before removing duplicates.
+
+(0)> sort -u < faces.txt
+
+
+Level 32
+## The file random-numbers.txt contains a list of 100 random integers. Print the number of unique prime numbers contained in the file.
+
+(0)> cat random-numbers.txt | sort -u | factor | awk 'NF==2' | wc -l
+
+
+Level 33
+## access.log.1 and access.log.2 are http server logs. Print the IP addresses common to both files, one per line. 
+
+(0)> comm -12 <(cut -d' ' -f1 access.log.1 | sort ) <(cut -d' ' -f1 access.log.2 | sort) 
+
+
+Level 34
+## Print all files with a .bin extension in the current directory that are different than the file named base.bin. 
+
+(0)> diff *.bin --to-file base.bin | cut -d' ' -f3 
+
+
+Level 35
+## There is a file: ./.../ /. .the flag.txt. Show its contents on the screen.
+
+(0)> cat ./.../*/'. .the flag.txt' 
+
+
+Level 36
+## How many lines contain tab characters in the file named file-with-tabs.txt in the current directory.
+
+(0)> grep -P '\t' file-with-tabs.txt | wc -l
+
+
+Level 37
+## There are files in this challenge with different file extensions.
+## Remove all files without the .txt and .exe extensions recursively in the current working directory.
+
+(0)> find . -type f ! -name "*.txt" ! -name "*.exe" -delete
+
+
+Level 38
+## There are some files in this directory that start with a dash in the filename. Remove those files.
+
+(0)> find -name "-*" -delete
+
+
+Level 39
+## There are two files in this directory, ps-ef1 and ps-ef2. Print the contents of both files sorted by PID and delete repeated lines.
+
+(0)> cat ps* | sort -u 
+
+
+Level 40
+## In the current directory there is a file called netstat.out. Print all the IPv4 listening ports sorted from the higher to lower.
+
+(0)> grep -w "LISTEN" netstat.out | grep -v "tcp6" | cut -d ":" -f2 | cut -d ' ' -f1 
+
+ 
